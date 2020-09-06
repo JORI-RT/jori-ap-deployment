@@ -6,6 +6,6 @@ spec:
   type: NodePort
   selector:
     app: go-rest-ap
-  ports: # ここの意味を考える
+  ports: # ここの意味を考える　NODE_PORTだと、NODEのIPとNODEのPORTにアクセスすると疎通するのでここの意味がわからない
     - port: 80
       targetPort: 8000
