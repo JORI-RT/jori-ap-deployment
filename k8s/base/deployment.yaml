@@ -1,0 +1,23 @@
+apiVersion: apps/v1 # for versions before 1.8.0 use apps/v1beta1
+kind: Deployment
+metadata:
+  name: go-rest-ap
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: go-rest-ap
+  strategy:
+    type: Recreate
+  template:
+    metadata:
+      labels:
+        app: go-rest-ap
+    spec:
+      containers:
+        - image: go_rest_sample:latest
+          imagePullPolicy: Never
+          name: go-rest-ap
+          ports: # 個々の意味を考える
+            - containerPort: 8000
+              name: go-rest-ap
