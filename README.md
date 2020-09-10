@@ -11,10 +11,8 @@ kubectl config set-context --current --namespace=jori-local
 k apply -k /k8s/overlay/local
 
 
-# 疎通させるときは、なんかだめ　まえできたのに、、、　調査
-NODE_PORT ->　k describe svc/svc_name | grep -i NodePort
-NODE_IP -> k describe node | grep -i ip
-curl $NODE_IP:$NODE_PORT
+# minikubeはexternalIpを持ってないっぽいので、minikubeコマンドで疎通させる
+minikube service jori-localjori-ap-service-np-v1 -n jori-local
 
 ## 他PODから疎通させるとき　ドメインはサービスのIP
 k run curl-temp --image=centos  --restart=Never --rm -it curl http://jori-localjori-ap-service-v1:80
