@@ -18,6 +18,6 @@ spec:
         - image: go_rest_sample:latest
           imagePullPolicy: Never
           name: go-rest-ap
-          ports: # 個々の意味を考える おそらくdockerのexpose ?:8000の部分に該当
+          ports: # PODの8000番に、このコンテナの8000版をexposeするという意味っぽい
             - containerPort: 8000
               name: go-rest-ap

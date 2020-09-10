@@ -3,7 +3,7 @@ kind: Service
 metadata:
   name: jori-ap-service
 spec:
-  type: NodePort
+  type: ClusterIP
   selector:
     app: go-rest-ap
   ports: # ここの意味を考える　NODE_PORTだと、NODEのIPとNODEのPORTにアクセスすると疎通するのでここの意味がわからない
